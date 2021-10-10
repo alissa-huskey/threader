@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "threader"
+version = "0.1.0"
+description = "Live Share thread maker discord bot for QCC classes"
+authors = ["Alissa Huskey <alissa.huskey@gmail.com>"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.poetry.dependencies]
+python = "3.8.1"
+"discord.py" = "^1.7.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+ipython = "^7.28.0"
+neovim = "^0.3.1"
+pylama = "^7.7.1"
+black = "^21.9b0"
+xdoctest = "^0.15.10"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
