@@ -6,6 +6,9 @@ scheduled [Python class](https://alissa-huskey.github.io/python-class/).
 
 Currently in development.
 
+* Manage [QCC-Threader](https://discord.com/developers/applications/896552338322509844/) application.
+* Add the bot to a server via this [authorize](https://discord.com/api/oauth2/authorize?client_id=896552338322509844&permissions=0&scope=bot) link.
+
 Development
 -----------
 
@@ -31,6 +34,7 @@ Documentation
   * [List Active Threads](https://discord.com/developers/docs/resources/channel#list-active-threads)
   * [Start Thread With Message](https://discord.com/developers/docs/resources/channel#start-thread-with-message)
 * [discord.py](https://discordpy.readthedocs.io/en/latest/index.html) -- Python Discord API Wrapper
+  * [examples](https://github.com/Rapptz/discord.py/tree/master/examples)
 
 Tutorials
 ---------
@@ -44,6 +48,6 @@ Tutorials
 * [Discord.py Bot run function at specific time every day](https://stackoverflow.com/questions/63625246/discord-py-bot-run-function-at-specific-time-every-day)
 * [Heroku Docs > Scheduling jobs](https://devcenter.heroku.com/articles/scheduler#dyno-hour-costs)
 * [Discord Cron Bot](https://github.com/peterthehan/discord-cron-bot)
-* [Creating / Hosting a Discord Bot using Python / Discord.Py](https://willsdiscordbot.wordpress.com/2021/08/28/creating-a-discord-bot-and-hosting/) -- uses Replit and Heroku
 * [Hosting discord.py bots on repl.it](https://replit.com/talk/learn/Hosting-discordpy-bots-with-replit/11008)
 * [The Ultimate Guide to Making a Discord Bot](https://www.writebots.com/how-to-make-a-discord-bot/)
+* [Creating / Hosting a Discord Bot using Python / Discord.Py](https://willsdiscordbot.wordpress.com/2021/08/28/creating-a-discord-bot-and-hosting/) -- uses base Craigsuter/BaseDiscordBot project, Replit and Heroku.
