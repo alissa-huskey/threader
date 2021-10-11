@@ -24,6 +24,22 @@ To install dependencies in your local development environment run:
 poetry install
 ```
 
+Production
+----------
+
+Currently hosted as [qcc-threader-bot][heroku-bot] on Heroku using the
+[moneymeets/python-poetry-buildpack][poetry-buildpack].
+
+The command to run the app is configured in [Procfile](./Procfile).
+
+Automatic deploys are set up via the [github][github] [deploy][github-deploy]
+branch.
+
+[github]: https://github.com/alissa-huskey/threader
+[github-deploy]: https://github.com/alissa-huskey/threader/tree/deploy
+[heroku-bot]: https://qcc-threader-bot.herokuapp.com/
+[poetry-buildpack]: https://github.com/moneymeets/python-poetry-buildpack
+
 Documentation
 -------------
 
