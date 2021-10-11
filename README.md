@@ -24,6 +24,17 @@ To install dependencies in your local development environment run:
 poetry install
 ```
 
+Then load the virtual environment via:
+
+```bash
+poetry shell
+```
+
+Create a `.env` file with the following environment variables:
+
+* `BOT_TOKEN` -- discord token
+* `APP` -- heroku app name
+
 Production
 ----------
 
@@ -39,6 +50,18 @@ branch.
 [github-deploy]: https://github.com/alissa-huskey/threader/tree/deploy
 [heroku-bot]: https://qcc-threader-bot.herokuapp.com/
 [poetry-buildpack]: https://github.com/moneymeets/python-poetry-buildpack
+
+To view logs:
+
+```bash
+heroku logs --app=qcc-threader-bot --tail
+```
+
+To create a one-off production shell:
+
+```bash
+heroku run bash
+```
 
 Documentation
 -------------

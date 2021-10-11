@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+#
+# heroku setup script
+#
+
+if ! command -v heroku > /dev/null; then
+  echo "Please install heroku cli" >&2
+  echo "https://devcenter.heroku.com/articles/heroku-cli#download-and-install" >&2
+  exit 1
+fi
+
+if [[ -z "${APP}" ]]; then
+  echo "Please set heroku app name to APP" >&2
+  exit 1
+fi
+
+if [[ -z "${BOT_TOKEN}" ]]; then
+  echo "Please set discord token to env var BOT_TOKEN" >&2
+  exit 1
+fi
+
+heroku-do() {
+  heroku "$@" -a "${APP}"
+}
+
+heroku-do config:set PYTHON_RUNTIME_VERSION=3.9.1
+heroku-do config:set POETRY_VERSION=1.1.4
+heroku-do config:set BOT_TOKEN=$BOT_TOKEN
+
+heroku-do buildpacks:clear
+heroku-do buildpacks:add https://github.com/moneymeets/python-poetry-buildpack.git
+heroku-do buildpacks:add heroku/python
+
+
+
+

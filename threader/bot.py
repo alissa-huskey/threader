@@ -57,7 +57,7 @@ class Client(discord.Client):
         content = message.content.strip()
 
         if content.startswith("!thread"):
-            await self.make_thread(message.channel, "(Testing) Live Share Links", ":robot: :link:")
+            await self.make_thread(message.channel, "Live Share Links", ":robot: :link:")
 
     async def make_thread(self, channel, title, message=None):
         """Create a public thread on channel that archives after 1 hour named
@@ -77,7 +77,8 @@ class Client(discord.Client):
             channel = self.get_channel(channel)
 
         now = datetime.now(self.tz)
-        nice_date = now.strftime("%m-%d-%Y (%s)")
+        # nice_date = now.strftime("%m-%d-%Y (%s)")
+        nice_date = now.strftime("%m-%d-%Y")
         date = now.strftime("%F")
 
         # requires discord.py version >1.7.3
