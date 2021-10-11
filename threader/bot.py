@@ -1,9 +1,12 @@
 """Discord bot"""
 
-import discord
+import asyncio
 import os
 from sys import stderr
 from datetime import datetime
+
+import discord
+from discord.enums import ChannelType
 import pytz
 
 VERBOSE = True
@@ -52,18 +55,43 @@ class Client(discord.Client):
         info("Received message:", message.channel, message.content, div=True)
 
         content = message.content.strip()
-        now = datetime.now(self.tz).strftime("%m-%d-%Y")
 
         if content.startswith("!thread"):
-            # await message.channel.send(f":robot: :link: {now}")
+            await self.make_thread(message.channel, "(Testing) Live Share Links", ":robot: :link:")
 
-            # requires discord.py version >1.7.3
-            # (master as of 10/10/2021)
-            await message.channel.create_thread(
-                name=f"{now} Live Share Links",
-                message=message,
-            )
-            return
+    async def make_thread(self, channel, title, message=None):
+        """Create a public thread on channel that archives after 1 hour named
+           with the current date and title. If message is present, post first
+           as first message to thread.
+
+           Parameters
+           -----------
+           channel: (int, discord.channels.Channel)
+                Channel or channel id
+           title: (str)
+                Title of thread
+           message: (str, default=None)
+                Text of message to post.
+           """
+        if isinstance(channel, int):
+            channel = self.get_channel(channel)
+
+        now = datetime.now(self.tz)
+        nice_date = now.strftime("%m-%d-%Y (%s)")
+        date = now.strftime("%F")
+
+        # requires discord.py version >1.7.3
+        # (master as of 10/10/2021)
+        await channel.create_thread(
+            name=f"{nice_date} {title}",
+            type=ChannelType.public_thread,
+            auto_archive_duration=60,
+        )
+
+        if message:
+            thread = channel.threads[-1]
+            await thread.send(message)
+
 
 def main():
     """Start the API client."""
